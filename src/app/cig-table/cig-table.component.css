@@ -1,0 +1,26 @@
+input {
+    background-color: black;
+    color: white;
+    outline: none;
+    border: none;
+    font-size: 100%;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+th,
+td {
+    border: 1px solid #ffffff40;
+    text-align: center;
+    padding: 6px;
+}
+
+tr td:first-child p {
+    width: max-content;
+    margin: 3px 0;
+}
+
+table {
+    border-collapse: collapse;
+}

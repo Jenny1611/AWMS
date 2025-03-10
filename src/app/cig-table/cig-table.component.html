@@ -1,0 +1,42 @@
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th *ngFor="let month of months" colspan="2">
+        {{ month.name }} <span>{{ month.year }}</span>
+      </th>
+      <th>Totale Giorni</th>
+      <th>Totale %</th>
+    </tr>
+    <tr>
+      <th></th>
+      <ng-container *ngFor="let month of months">
+        <th>Giorni</th>
+        <th>%</th>
+      </ng-container>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees; let i = index">
+      <td>
+        <p>{{ employee.name }}</p>
+      </td>
+      <ng-container *ngFor="let data of employee.data">
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="data.days"
+            (input)="calculateTotals(i, data)"
+            [max]="data.monthLength"
+          />
+          <!--<span style="font-size: 10px;">{{ data.month }}</span>-->
+        </td>
+        <td>{{ data.percentage }}%</td>
+      </ng-container>
+      <td>{{ calculateTotals(i).totalDays }}</td>
+      <td>{{ calculateTotals(i).totalPercentage }}%</td>
+    </tr>
+  </tbody>
+</table>
