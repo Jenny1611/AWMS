@@ -38,6 +38,61 @@ export class ApiService {
     });
   }
 
+  public getAWMSData() {
+    return new Promise((resolve, reject) => {
+      resolve([
+        {
+          name: 'Mario Rossi',
+          date: '17/03/2025',
+          startTime: '17/03/2025 05:30:00',
+          endTime: '17/03/2025 10:30:00',
+          status: 'CONFERMATA',
+          type: 'MALATTIA',
+        },
+        {
+          name: 'Luigi Verdi',
+          date: '18/03/2025',
+          startTime: '18/03/2025 05:30:00',
+          endTime: '18/03/2025 13:30:00',
+          status: 'CONFERMATA',
+          type: 'CIG',
+        },
+        {
+          name: 'Luca Bianchi',
+          date: '20/03/2025',
+          startTime: '20/03/2025 13:30:00',
+          endTime: '20/03/2025 21:30:00',
+          status: 'IN ATTESA',
+          type: 'PERMESSO',
+        },
+        {
+          name: 'Mario Rossi',
+          date: '19/03/2025',
+          startTime: '19/03/2025 13:30:00',
+          endTime: '19/03/2025 21:30:00',
+          status: 'CONFERMATA',
+          type: 'CIG',
+        },
+        {
+          name: 'Luca Bianchi',
+          date: '19/03/2025',
+          startTime: '19/03/2025 17:30:00',
+          endTime: '19/03/2025 21:30:00',
+          status: 'CONFERMATA',
+          type: 'CIG',
+        },
+        {
+          name: 'Mario Rossi',
+          date: '20/03/2025',
+          startTime: '20/03/2025 05:30:00',
+          endTime: '20/03/2025 10:30:00',
+          status: 'CONFERMATA',
+          type: 'CIG',
+        },
+      ]);
+    });
+  }
+
   createFakeData() {
     let data: any = [];
     this.months.forEach((month) => {
@@ -47,7 +102,7 @@ export class ApiService {
         month: month.name,
         days,
         percentage: this.calcPercentage(days, monthDays),
-        monthLength: month.length
+        monthLength: month.length,
       });
     });
     return data;
